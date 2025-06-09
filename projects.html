@@ -32,7 +32,41 @@
           <p>API integration project with Node.js and Express.</p>
         </div>
       </div>
+      <h2 style="margin-top: 2.5rem">My GitHub Repositories</h2>
+      <div id="github-repos" class="projects-list"></div>
     </section>
     <footer>&copy; 2025 Salim. All rights reserved.</footer>
+    <script>
+      // Fetch and display GitHub repos
+      fetch("https://api.github.com/users/salim-almaalam/repos")
+        .then((response) => response.json())
+        .then((repos) => {
+          const container = document.getElementById("github-repos");
+          if (!Array.isArray(repos) || repos.length === 0) {
+            container.innerHTML = "<p>No public repositories found.</p>";
+            return;
+          }
+          repos.forEach((repo) => {
+            const card = document.createElement("div");
+            card.className = "project-card";
+            card.innerHTML = `
+              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${
+              repo.name
+            }</a></h3>
+              <p>${
+                repo.description ? repo.description : "No description provided."
+              }</p>
+              <p style="font-size:0.95em;color:#888;">⭐ ${
+                repo.stargazers_count
+              } | Updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(() => {
+          document.getElementById("github-repos").innerHTML =
+            "<p>Could not load repositories.</p>";
+        });
+    </script>
   </body>
 </html>
