@@ -3,70 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Salim Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Projects | John Doe</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>SALIM AL MAALAM</h1>
-      <p>Web Developer & Designer</p>
+      <div class="logo">John<span>Dev</span></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
-    <section>
-      <h2>Projects</h2>
-      <div class="projects-list">
-        <div class="project-card">
-          <h3>Project One</h3>
-          <p>A modern web app for managing tasks efficiently.</p>
-        </div>
-        <div class="project-card">
-          <h3>Project Two</h3>
-          <p>Responsive portfolio website built with React and CSS.</p>
-        </div>
-        <div class="project-card">
-          <h3>Project Three</h3>
-          <p>API integration project with Node.js and Express.</p>
-        </div>
+
+    <main class="projects-section">
+      <h1 class="section-title">🚀 My Projects</h1>
+      <div class="project-grid">
+        <!-- Image‑Slider -->
+        <a
+          href="https://github.com/salim-almaalam/Image-Slider"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Image+Slider"
+            alt="Image Slider"
+          />
+          <h2>Image Slider</h2>
+          <p>Basic image slider built with HTML, CSS & JavaScript.</p>
+        </a>
+
+        <!-- Color‑Changer -->
+        <a
+          href="https://github.com/salim-almaalam/Color-Changer"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Color+Changer"
+            alt="Color Changer"
+          />
+          <h2>Color Changer</h2>
+          <p>Simple background color changer application.</p>
+        </a>
+
+        <!-- Speech‑Recognition‑web‑app -->
+        <a
+          href="https://github.com/salim-almaalam/Speech-Recognition-web-app"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Speech+Recognition"
+            alt="Speech Recognition"
+          />
+          <h2>Speech Recognition App</h2>
+          <p>Web app using JavaScript speech recognition API.</p>
+        </a>
+
+        <!-- Github‑Finder -->
+        <a
+          href="https://github.com/salim-almaalam/Github-Finder"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Github+Finder"
+            alt="Github Finder"
+          />
+          <h2>GitHub Finder</h2>
+          <p>React app to search GitHub users and display profiles.</p>
+        </a>
+
+        <!-- Contact‑Keeper -->
+        <a
+          href="https://github.com/salim-almaalam/Contact-Keeper"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Contact+Keeper"
+            alt="Contact Keeper"
+          />
+          <h2>Contact Keeper</h2>
+          <p>React CRUD app to manage contacts with local storage/backend.</p>
+        </a>
+
+        <!-- Final‑Year‑Project -->
+        <a
+          href="https://github.com/salim-almaalam/Final-Year-Project"
+          class="project-card"
+          target="_blank"
+        >
+          <img
+            src="https://via.placeholder.com/400x200?text=Final+Year+Project"
+            alt="Final Year Project"
+          />
+          <h2>Final Year Project</h2>
+          <p>UCAS departmental registration system built in PHP.</p>
+        </a>
       </div>
-      <h2 style="margin-top: 2.5rem">My GitHub Repositories</h2>
-      <div id="github-repos" class="projects-list"></div>
-    </section>
-    <footer>&copy; 2025 Salim. All rights reserved.</footer>
-    <script>
-      // Fetch and display GitHub repos
-      fetch("https://api.github.com/users/salim-almaalam/repos")
-        .then((response) => response.json())
-        .then((repos) => {
-          const container = document.getElementById("github-repos");
-          if (!Array.isArray(repos) || repos.length === 0) {
-            container.innerHTML = "<p>No public repositories found.</p>";
-            return;
-          }
-          repos.forEach((repo) => {
-            const card = document.createElement("div");
-            card.className = "project-card";
-            card.innerHTML = `
-              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${
-              repo.name
-            }</a></h3>
-              <p>${
-                repo.description ? repo.description : "No description provided."
-              }</p>
-              <p style="font-size:0.95em;color:#888;">⭐ ${
-                repo.stargazers_count
-              } | Updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
-            `;
-            container.appendChild(card);
-          });
-        })
-        .catch(() => {
-          document.getElementById("github-repos").innerHTML =
-            "<p>Could not load repositories.</p>";
-        });
-    </script>
+    </main>
+
+    <footer>
+      <p>© 2025 SALIM ALMAALAM — Built with 💻 and ☕</p>
+    </footer>
   </body>
 </html>
